@@ -1,0 +1,76 @@
+body {
+	animation-name: daylight;
+	animation-iteration-count: infinite;  
+    animation-duration: 86400s;
+	animation-delay: 0;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 50px;
+	font-family: "F Grotesk";
+	text-align: center;
+	color: #aaa;
+	overflow: hidden;
+	transition: 0.2s;
+}
+
+a {
+	text-decoration: none;
+	font-size: inherit;
+	color: inherit;
+	padding: 20px;
+}
+
+#one, #two, #three {
+	height: 150px;
+	width: 100%;
+	padding: 0 1%;
+	flex-grow: 1;
+	line-height: 150px;
+	transition: 0.2s;
+	transition-timing-function: ease-in;
+}
+
+#one:hover, #two:hover, #three:hover {
+	cursor: pointer;
+	transition: 0.2s;
+	color: #fff;
+	transition-timing-function: ease-out;
+}
+
+#one a:focus, #two a:focus, #three a:focus {
+	color: #fff;
+	background-color: rgba(255,255,255,0.05);
+	outline:0;
+}
+
+#one {
+	order: 1;
+}
+
+#two {
+	order: 2;
+}
+
+#three {
+	order: 3;
+
+}
+
+@-webkit-keyframes daylight {  
+	0% { background-color: #FF890E; } /* SUNRISE */
+	4.16% { background-color: #FFC18D; } /* GOLDEN HOUR */
+	15.11% { background-color: #FFDABB; } /* MID-MORNING */
+	19.27% { background-color: #FFEAD8; } /* NOON */
+	26.8% { background-color: #FFDABB;  } /* MID-AFTERNOON */
+	34.34% { background-color: #FFC18D; } /* GOLDEN HOUR */
+	38.5% { background-color: #FF890E; } /* SUNSET */
+	39.6% { background-color: #BFD3FF;    } /* DUSK */
+	40.65% { background-color: #000;    } /* BEGIN FULL DARKNESS */
+	97.85% { background-color: #0c101d;    }/* END FULL DARKNESS */
+	98.9% { background-color: #BFD3FF; } /* DAWN */
+}
+
