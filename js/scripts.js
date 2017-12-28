@@ -64,8 +64,6 @@ $(function() {
 		var minsAsPercent = minDiff / 60 * 4.16; // Convert minutes to percentage of day
 		var totalPercent = hoursAsPercent + minsAsPercent; // Get full percentage
 		var animationDelay = nowHour >= 0 && nowHour < sunriseHour ? -86400 - ((totalPercent / 100 * 86400) * -1) : totalPercent / 100 * 86400; // Calculate animation delay
-
-		// $("body").css("animation-delay", animationDelay + "s")
 		$("body").animate({animationDelay: animationDelay + "s"}, {duration: 1000, easing: "linear"});
 
 	}
@@ -84,13 +82,12 @@ $(function() {
 		var minsAsPercent = minDiff / 60 * 4.16; // Convert minutes to percentage of day
 		var totalPercent = hoursAsPercent + minsAsPercent; // Get full percentage
 		var animationDelay = nowHour >= 0 && nowHour < sunriseHour ? -86400 - ((totalPercent / 100 * 86400) * -1) : totalPercent / 100 * 86400; // Calculate animation delay
-
 		$("body").animate({animationDelay: animationDelay + "s"}, {duration: 1000, easing: "linear"});
 	}
 
 	function setAnimDelay3(){
 		var dubLat = 25.2048;
-		var dubLong = 55.2708;
+		var dubLong = 55.2708;å
 		var times = SunCalc.getTimes(new Date(), dubLat, dubLong)
 		var sunriseHour = times.sunrise.getHours();
 		var sunriseMin = times.sunrise.getMinutes();		
@@ -102,7 +99,6 @@ $(function() {
 		var minsAsPercent = minDiff / 60 * 4.16; // Convert minutes to percentage of day
 		var totalPercent = hoursAsPercent + minsAsPercent; // Get full percentage
 		var animationDelay = nowHour >= 0 && nowHour < sunriseHour ? -86400 - ((totalPercent / 100 * 86400) * -1) : totalPercent / 100 * 86400; // Calculate animation delay
-
 		$("body").animate({animationDelay: animationDelay + "s"}, {duration: 1000, easing: "linear"});
 	}
 
