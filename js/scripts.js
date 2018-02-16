@@ -87,7 +87,7 @@ $(function() {
 
 	function setAnimDelay3(){
 		var dubLat = 25.2048;
-		var dubLong = 55.2708;å
+		var dubLong = 55.2708;
 		var times = SunCalc.getTimes(new Date(), dubLat, dubLong)
 		var sunriseHour = times.sunrise.getHours();
 		var sunriseMin = times.sunrise.getMinutes();		
@@ -101,6 +101,13 @@ $(function() {
 		var animationDelay = nowHour >= 0 && nowHour < sunriseHour ? -86400 - ((totalPercent / 100 * 86400) * -1) : totalPercent / 100 * 86400; // Calculate animation delay
 		$("body").animate({animationDelay: animationDelay + "s"}, {duration: 1000, easing: "linear"});
 	}
+
+	// function checkSunPosition(){
+	// 	SunCalc.getPosition(Date timeAndDate, /*Number*/ latitude, /*Number*/ longitude)
+	// }
+
+	console.log(// get position of the sun (azimuth and altitude) at today's sunrise
+		SunCalc.getPosition(SunCalc.getTimes(new Date(), 51.5, -0.1).sunrise, 51.5, -0.1));
 
 	setAnimDelay1();
 
