@@ -2,66 +2,114 @@ $(function() {
 
 // THE BELOW SHOULD START TO FIX THE JUMPING INTERVAL
 
-	// var notPlaying = false;
+// var refreshIntervalId = setInterval(fname, 10000);
 
-	// var default;
+// /* later */
+// clearInterval(refreshIntervalId);
+
+
+// BEGIN TO TRUNCATE FUNCTIONS USING OBJECTS
+
+	// var NYC = {
+	// 	current: function(){moment().tz("America/New_York").format('HH:mm:ss')}
+	// }
+
+	// var AUK = {
+	// 	current: function(){moment().tz("Pacific/Auckland").format('HH:mm:ss')}
+	// }
+
+	// var DUB = {
+	// 	current: function(){moment().tz("Asia/Dubai").format('HH:mm:ss')}
+	// }
+
+
+	// function clock(city){
+	//   	var time = city.current();
+	// 	// $('.clock').html(time);
+	// 	console.log(time)
+	// };
+
+	// clock(NYC);
+
+
+	function NYC() {
+	  	var nycDate = moment().tz("America/New_York").format('HH:mm:ss');
+		$('.clock').html(nycDate);
+	};
+
+	function AUK() {
+	    var aukDate = moment().tz("Pacific/Auckland").format('HH:mm:ss');
+	    $('.clock').html(aukDate);
+	};
+
+	function DUB() {
+	    var dubDate = moment().tz("Asia/Dubai").format('HH:mm:ss');
+	    $('.clock').html(dubDate);
+	};
+
+	function startNYC() {
+		startNYC = function(){ setInterval(function(){ NYC() }, 1000)};
+	};
+
+	var startNYC = function(){ setInterval(function(){ NYC() }, 1000)};
+	var startAUK = function(){ setInterval(function(){ AUK() }, 1000)};
+	var startDUB = function(){ setInterval(function(){ DUB() }, 1000)};
+
+	startNYC();
+
+	function stopClock() {
+		clearInterval(startNYC);
+		clearInterval(startDUB);
+		clearInterval(startAUK);
+	};
+
+	$("#one").on('click', function() {
+		stopClock();
+		startNYC();
+	});
+
+	$("#two").on('click', function() {
+		stopClock();
+		startAUK();
+	});
+
+	$("#three").on('click', function() {
+		stopClock();
+		startDUB();
+	});
 
 	// function default() {
-	// 	default = setInterval(startClock, 1000;)
+	// 	var default = setInterval(startClock, 1000;)
 	// }
 
 	// function startClock() {
 	// 		var nycDate = moment().tz("America/New_York").format('HH:mm:ss');
-	// 		if(notPlaying === false){
 	// 		$('.clock').html(nycDate);
-	// 		}
 	// 	};
 
-	// startClock();
 
-	//     function stopClock() {
-	//       clearInterval(default);
-	//       clearInterval();
-	//       clearInterval();
-	//     }
+// function nycDate() {
+// 	setInterval(function() {
+// 	    var nycDate = moment().tz("America/New_York").format('HH:mm:ss');
+// 	    $('.clock').html(nycDate);
+// 	}, 1000);
+// };
 
-function nycDate() {
-	setInterval(function() {
-	    var nycDate = moment().tz("America/New_York").format('HH:mm:ss');
-	    $('.clock').html(nycDate);
-	}, 1000);
-};
+// function dubDate() {
+// 	setInterval(function() {
+// 	    var dubDate = moment().tz("Asia/Dubai").format('HH:mm:ss');
+// 	    $('.clock').html(dubDate);
+// 	}, 1000);
+// };
 
-function dubDate() {
-	setInterval(function() {
-	    var dubDate = moment().tz("Asia/Dubai").format('HH:mm:ss');
-	    $('.clock').html(dubDate);
-	}, 1000);
-};
+// function aukDate() {
+// 	setInterval(function() {
+// 	    var aukDate = moment().tz("Pacific/Auckland").format('HH:mm:ss');
+// 	    $('.clock').html(aukDate);
+// 	}, 1000);
+// };
 
-function aukDate() {
-	setInterval(function() {
-	    var aukDate = moment().tz("Pacific/Auckland").format('HH:mm:ss');
-	    $('.clock').html(aukDate);
-	}, 1000);
-};
-
-nycDate();
-
-	$("#one").on('click', function() {
-		notPlaying = true;
-		nycDate();
-	});
-
-	$("#two").on('click', function() {
-		notPlaying = true;
-		aukDate();
-	});
-
-	$("#three").on('click', function() {
-		notPlaying = true;
-		dubDate();
-	});
+// nycDate();
 
 
 
@@ -95,31 +143,6 @@ nycDate();
 
 //     return i;
 // }
-
-
-
-
-  // var decimal_places = 1;
-  // var decimal_factor = decimal_places === 0 ? 1 : decimal_places * 10;
-
-  // $('#target').animateNumber(
-  //   {
-  //     number: 100 * decimal_factor,
-  //     color: 'green',
-  //     'font-size': '30px',
-
-  //     numberStep: function(now, tween) {
-  //       var floored_number = Math.floor(now) / decimal_factor,
-  //           target = $(tween.elem);
-  //       if (decimal_places > 0) {
-  //         floored_number = floored_number.toFixed(decimal_places);
-  //       }
-
-  //       target.text(floored_number + ' %');
-  //     }
-  //   },
-  //   15000
-  // )
 
 
 });
