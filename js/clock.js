@@ -2,28 +2,59 @@ $(function() {
 
 // THE BELOW SHOULD START TO FIX THE JUMPING INTERVAL
 
+    var nIntervId;
+ 
+    function changeColor() {
+      nIntervId = setInterval(flashText, 1000);
+    }
+ 
+    function flashText() {
+      var oElem = document.getElementById('my_box');
+      oElem.style.color = oElem.style.color == 'red' ? 'blue' : 'red';
+      // 'red' ? 'blue' : 'red' is a ternary operator.
+    }
+ 
+    function stopTextColor() {
+      clearInterval(nIntervId);
+    }
+
+
+
+
+
+
+
+
 	// var notPlaying = false;
 
-	// var default;
+	var default;
 
-	// function default() {
-	// 	default = setInterval(startClock, 1000;)
-	// }
+	function startClock() {
+			var nycDate = moment().tz("America/New_York").format('HH:mm:ss');
+			if(notPlaying === false){
+			$('.clock').html(nycDate);
+			}
+		};
 
-	// function startClock() {
-	// 		var nycDate = moment().tz("America/New_York").format('HH:mm:ss');
-	// 		if(notPlaying === false){
-	// 		$('.clock').html(nycDate);
-	// 		}
-	// 	};
+	function default() {
+		default = setInterval(startClock, 1000;)
+	}
 
-	// startClock();
+	startClock();
 
-	//     function stopClock() {
-	//       clearInterval(default);
-	//       clearInterval();
-	//       clearInterval();
-	//     }
+	    function stopClock() {
+	      clearInterval(default);
+	      clearInterval();
+	      clearInterval();
+	    }
+
+
+
+
+
+
+
+
 
 function nycDate() {
 	setInterval(function() {
@@ -49,17 +80,17 @@ function aukDate() {
 nycDate();
 
 	$("#one").on('click', function() {
-		notPlaying = true;
+		// notPlaying = true;
 		nycDate();
 	});
 
 	$("#two").on('click', function() {
-		notPlaying = true;
+		// notPlaying = true;
 		aukDate();
 	});
 
 	$("#three").on('click', function() {
-		notPlaying = true;
+		// notPlaying = true;
 		dubDate();
 	});
 
